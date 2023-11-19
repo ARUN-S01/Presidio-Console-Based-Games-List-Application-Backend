@@ -56,6 +56,11 @@ app.delete('/del', async (req, res) => {
 
 })
 
+// Trial Response
+app.get('/hello', async(req, res) => {
+    res.status(200).send("You are on hosted API by Arun S")
+})
+
 app.listen(3000, () => {
     console.log("Server is Live");
 })
