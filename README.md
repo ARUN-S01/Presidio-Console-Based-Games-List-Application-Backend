@@ -62,3 +62,5 @@ The Above command install all the packages associated
 2. '/insert' -> It inserts the data from body to the Database
 3. '/update' -> Updates the data with the requested filters
 4. '/del' -> deletes the data with specific name or id's
+
+## Thank You
