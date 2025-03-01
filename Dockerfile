@@ -4,17 +4,20 @@ FROM node:18-alpine
 # Set working directory inside the container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json (if available) first
+# Copy package.json first (to take advantage of Docker caching)
 COPY package.json ./
 
 # Install dependencies
 RUN npm install --omit=dev
 
-# Copy all project files to the container
-COPY . .
+# Copy the entire project into the container
+COPY . . 
 
-# Expose the application port (update this if your app uses a different port)
+# Ensure the server file exists
+RUN ls -l /usr/src/app/
+
+# Expose the application port
 EXPOSE 3000
 
-# Command to start the application
+# Start the application
 CMD ["node", "server.js"]
