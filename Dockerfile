@@ -1,20 +1,17 @@
-# Use official Node.js image
-FROM node:18
+# Use a base image with Node.js
+FROM node:18-alpine
 
-# Set working directory
-WORKDIR /app
+# Set the working directory inside the container
+WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json
-COPY package.json package-lock.json ./
+# Clone the repository (ensure this URL is correct)
+RUN git clone -b main https://github.com/ARUN-S01/Presidio-Console-Based-Games-List-Application-Backend.git /usr/src/app
 
 # Install dependencies
 RUN npm install
 
-# Copy project files
-COPY . .
-
-# Expose the port
+# Expose the application port
 EXPOSE 3000
 
 # Start the application
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
