@@ -2,10 +2,10 @@
 FROM node:18-alpine
 
 # Set the working directory inside the container
-WORKDIR /usr/src/app
+WORKDIR /
 
 # Clone the repository (ensure this URL is correct)
-RUN git clone -b main https://github.com/ARUN-S01/Presidio-Console-Based-Games-List-Application-Backend.git /usr/src/app
+RUN git clone -b main https://github.com/ARUN-S01/Presidio-Console-Based-Games-List-Application-Backend.git /
 
 # Install dependencies
 RUN npm install
@@ -14,4 +14,4 @@ RUN npm install
 EXPOSE 3000
 
 # Start the application
-CMD ["npm", "start"]
+CMD ["npm", "server.js"]
